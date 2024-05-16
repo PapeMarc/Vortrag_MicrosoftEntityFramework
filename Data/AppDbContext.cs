@@ -9,8 +9,8 @@ namespace MicrosoftEntityFramework.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=localhost;Port=3306;Database=test;UID=root;PWD=rootpw";
-            var serverVersion = new MariaDbServerVersion(new Version(10, 3, 39));
+            String connectionString = $"Server=localhost;Port=3306;Database=test;UID=root;PWD={Config.Load().password}";
+            ServerVersion serverVersion = new MariaDbServerVersion(new Version(10, 3, 39));
             optionsBuilder.UseMySql(connectionString, serverVersion);
         }
     }
