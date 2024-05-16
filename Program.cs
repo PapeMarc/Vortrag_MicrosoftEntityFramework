@@ -8,8 +8,13 @@ try
     database = new AppDbContext();
 
     // database.User.Add(new MicrosoftEntityFramework.Model.User { EMail = "", Name = "" });
-    database.User.Add(new User { EMail = "Timo.Behr@edu.fhdw.de", Name = "Timo Behr" });
-    database.User.Add(new User { EMail = "Moritz.Wehlitz@edu.fhdw.de", Name = "Moritz Wehlitz" });
+    if(database.User.Count() == 0) {
+        database.User.Add(new User { EMail = "Angela.Gaugler@edu.fhdw.de", Name = "Angela Gaugler" });
+        database.User.Add(new User { EMail = "Leonard.Kraus@edu.fhdw.de", Name = "Leonard Kraus" });
+        database.User.Add(new User { EMail = "Timo.Behr@edu.fhdw.de", Name = "Timo Behr" });
+        database.User.Add(new User { EMail = "Moritz.Wehlitz@edu.fhdw.de", Name = "Moritz Wehlitz" });
+        database.User.Add(new User { EMail = "Lena.Kosmetschke@edu.fhdw.de", Name = "Lena Kosmetschke" });
+    }
 
     // database.User.OrderBy(predicate);
     User lastAddedUser = database.User.OrderBy(a => a.UserID).Last();
